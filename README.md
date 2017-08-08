@@ -2,7 +2,7 @@
 
 A simple Flask app that demonstrates some basic Folium functionality using the WMATA API.
 
-A Jupyter notebook (`main.ipynb`) goes into more depth, with more examples using GeoJSON and the Walk Score API.
+A Jupyter notebook (`demo.ipynb`) goes into more depth, with more examples using GeoJSON and the Walk Score API. An HTML version of the notebook is available as `demo.html`.
 
 ## Environment
 
