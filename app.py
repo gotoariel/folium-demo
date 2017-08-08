@@ -1,5 +1,4 @@
 import requests
-import pandas as pd
 import folium
 import geocoder
 import string
@@ -10,7 +9,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-app.vars = {}
+app.vars = {'refresh': False}
 
 @app.route('/')
 def main():
@@ -36,7 +35,8 @@ def tracker():
                                   icon = folium.Icon(color = 'blue')))
 
   # Call API for bus locations
-  refresh = False if app.vars['cache'] == "yes" else True
+
+  app.vars['refresh'] = False if app.vars['cache'] == 'yes' else True
   bus_list = get_buses(loc.lat, loc.lng, app.vars['radius'])
 
   for bus in bus_list:
@@ -51,7 +51,9 @@ def tracker():
   
   return render_template('map.html')
 
-@checkpoint(key = string.Template('{0}x{1}_radius{2}.buslist'), work_dir = 'cache/', refresh = refresh)
+@checkpoint(key = string.Template('{0}x{1}_radius{2}.buslist'),
+            work_dir = 'cache/',
+            refresh = app.vars['refresh'])
 def get_buses(lat, lon, radius):
   """
   All values passed as strings and radius in meters
