@@ -22,6 +22,7 @@ def index():
   elif request.method == 'POST':
     app.vars['location'] = request.form['location']
     app.vars['radius'] = request.form['radius']
+    # app.vars['route'] = request.form.get('route')
     app.vars['cache'] = request.form.get('cache')
     return redirect('/tracker')
 
@@ -43,7 +44,7 @@ def tracker():
     folium.features.RegularPolygonMarker(location = [bus['Lat'], bus['Lon']],
                                          popup = 'Route %s to %s' % (bus['RouteID'], bus['TripHeadsign']),
                                          number_of_sides = 3,
-                                         radius = 10,
+                                         radius = 15,
                                          weight = 1,
                                          fill_opacity = 0.8,
                                          rotation = 30).add_to(bus_map)
@@ -65,9 +66,13 @@ def get_buses(lat, lon, radius):
                 requests.adapters.HTTPAdapter(max_retries = 2))
 
   bus_endpoint = 'https://api.wmata.com/Bus.svc/json/jBusPositions'
+  
   params = {'Lat': lat,
             'Lon': lon,
             'Radius': radius}
+
+  # if app.vars['route']:
+  #   params['RouteID'] = app.vars['route']
 
   response = session.get(bus_endpoint, params = params, headers = headers)
   if not response.status_code == 200:
