@@ -3,6 +3,7 @@ import pandas as pd
 import folium
 import geocoder
 import string
+import os
 
 from ediblepickle import checkpoint
 from flask import Flask, render_template, request, redirect, url_for
@@ -54,9 +55,7 @@ def get_buses(lat, lon, radius):
   All values passed as strings and radius in meters
   """
 
-  with open("secrets/.wmata") as fin:
-    wmata_key = fin.read().strip()
-  headers = {'api_key': wmata_key}
+  headers = {'api_key': os.environ['API_KEY']}
 
   session = requests.Session()
   session.mount('https://api.wmata.com',
