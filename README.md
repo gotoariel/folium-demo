@@ -37,7 +37,7 @@ Download the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and 
 
 Create a Heroku application with `heroku create <app_name>` or leave blank to auto-generate a name.
 
-Deploy the repo to Heroku by `git push heroku master`. You should be able to access your app at `https://<app_name>.herokuapp.com`
+Deploy the repo to Heroku by `git push heroku master`. You should be able to access your app at `https://<app_name>.herokuapp.com`.
 
 There is a [quickstart guide](https://devcenter.heroku.com/articles/getting-started-with-python-o) available as a reference.
 
