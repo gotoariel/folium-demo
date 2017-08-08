@@ -22,7 +22,8 @@ def index():
     return render_template('input.html')
   elif request.method == 'POST':
     app.vars['location'] = request.form['location']
-    app.vars['radius'] = request.form.getlist('radius')
+    app.vars['radius'] = request.form['radius']
+    app.vars['cache'] = request.form['cache']
     return redirect('/tracker')
 
 @app.route('/tracker')
@@ -35,6 +36,7 @@ def tracker():
                                   icon = folium.Icon(color = 'blue')))
 
   # Call API for bus locations
+  refresh = False if app.vars['cache'] == "yes" else True
   bus_list = get_buses(loc.lat, loc.lng, app.vars['radius'])
 
   for bus in bus_list:
@@ -49,7 +51,7 @@ def tracker():
   
   return render_template('map.html')
 
-@checkpoint(key = string.Template('{0}x{1}_radius{2}.buslist'), work_dir = 'cache/', refresh = False)
+@checkpoint(key = string.Template('{0}x{1}_radius{2}.buslist'), work_dir = 'cache/', refresh = refresh)
 def get_buses(lat, lon, radius):
   """
   All values passed as strings and radius in meters
