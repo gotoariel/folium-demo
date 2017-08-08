@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script>L_PREFER_CANVAS = false; L_NO_TOUCH = false; L_DISABLE_3D = false;</script>
+    <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/leaflet.markercluster-src.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.0.0/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://rawgit.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css" />
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <style> #map_8bf7b6d1a14741a5b6aac41438e0428e {
+                position : relative;
+                width : 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-dvf/0.3.0/leaflet-dvf.markers.min.js"></script>
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_8bf7b6d1a14741a5b6aac41438e0428e" ></div>
+        
+</body>
+<script>    
+    
+
+            
+                var southWest = L.latLng(-90, -180);
+                var northEast = L.latLng(90, 180);
+                var bounds = L.latLngBounds(southWest, northEast);
+            
+
+            var map_8bf7b6d1a14741a5b6aac41438e0428e = L.map(
+                                  'map_8bf7b6d1a14741a5b6aac41438e0428e',
+                                  {center: [38.9096936,-77.043339],
+                                  zoom: 15,
+                                  maxBounds: bounds,
+                                  layers: [],
+                                  worldCopyJump: false,
+                                  crs: L.CRS.EPSG3857
+                                 });
+            
+        
+    
+            var tile_layer_1ee4135ea9e444a09f83949f28d5134a = L.tileLayer(
+                'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                {
+                    maxZoom: 18,
+                    minZoom: 1,
+                    continuousWorld: false,
+                    noWrap: false,
+                    attribution: 'Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
+                    detectRetina: false
+                    }
+                ).addTo(map_8bf7b6d1a14741a5b6aac41438e0428e);
+
+        
+    
+
+            var marker_2f17cc99fa0849f8bb23d8e35dccc668 = L.marker(
+                [38.9096936,-77.043339],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_8bf7b6d1a14741a5b6aac41438e0428e);
+            
+    
+
+                var icon_0a0df9b573924c18ae0972312edda81e = L.AwesomeMarkers.icon({
+                    icon: 'info-sign',
+                    iconColor: 'white',
+                    markerColor: 'blue',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_2f17cc99fa0849f8bb23d8e35dccc668.setIcon(icon_0a0df9b573924c18ae0972312edda81e);
+            
+    
+            var popup_243adc9ff66c40d1b7f5e8db19971878 = L.popup({maxWidth: '300'});
+
+            
+                var html_bab45e9b7fa746c28469b7a29fd498c1 = $('<div id="html_bab45e9b7fa746c28469b7a29fd498c1" style="width: 100.0%; height: 100.0%;">Dupont Circle, Washington, DC, USA</div>')[0];
+                popup_243adc9ff66c40d1b7f5e8db19971878.setContent(html_bab45e9b7fa746c28469b7a29fd498c1);
+            
+
+            marker_2f17cc99fa0849f8bb23d8e35dccc668.bindPopup(popup_243adc9ff66c40d1b7f5e8db19971878);
+
+            
+        
+    
+            var regular_polygon_marker_5e75de95cb4e411bbc3b640d03893a49 = new L.RegularPolygonMarker(
+                new L.LatLng(38.902206,-77.048866),
+                {
+                    icon : new L.Icon.Default(),
+                    color: 'black',
+                    opacity: 1,
+                    weight: 1,
+                    fillColor: 'blue',
+                    fillOpacity: 0.8,
+                    numberOfSides: 3,
+                    rotation: 0,
+                    radius: 10
+                    }
+                )
+                .addTo(map_8bf7b6d1a14741a5b6aac41438e0428e);
+            
+    
+            var popup_2050d20e1c9d4d309c4c458acd11d5fd = L.popup({maxWidth: '300'});
+
+            
+                var html_01420193e40249418f218592f1910d86 = $('<div id="html_01420193e40249418f218592f1910d86" style="width: 100.0%; height: 100.0%;">Route 30N to FRIENDSHIP HEIGHTS</div>')[0];
+                popup_2050d20e1c9d4d309c4c458acd11d5fd.setContent(html_01420193e40249418f218592f1910d86);
+            
+
+            regular_polygon_marker_5e75de95cb4e411bbc3b640d03893a49.bindPopup(popup_2050d20e1c9d4d309c4c458acd11d5fd);
+
+            
+        
+    
+            var regular_polygon_marker_b1e61481a35b4a7b861ae50f971236f9 = new L.RegularPolygonMarker(
+                new L.LatLng(38.902016,-77.049049),
+                {
+                    icon : new L.Icon.Default(),
+                    color: 'black',
+                    opacity: 1,
+                    weight: 1,
+                    fillColor: 'blue',
+                    fillOpacity: 0.8,
+                    numberOfSides: 3,
+                    rotation: 0,
+                    radius: 10
+                    }
+                )
+                .addTo(map_8bf7b6d1a14741a5b6aac41438e0428e);
+            
+    
+            var popup_7912757629c84314b5692b81efb00e45 = L.popup({maxWidth: '300'});
+
+            
+                var html_2142e0f04a36411d8944a43a182008e1 = $('<div id="html_2142e0f04a36411d8944a43a182008e1" style="width: 100.0%; height: 100.0%;">Route 30S to SOUTHERN AVE STATION</div>')[0];
+                popup_7912757629c84314b5692b81efb00e45.setContent(html_2142e0f04a36411d8944a43a182008e1);
+            
+
+            regular_polygon_marker_b1e61481a35b4a7b861ae50f971236f9.bindPopup(popup_7912757629c84314b5692b81efb00e45);
+
+            
+        
+    
+            var regular_polygon_marker_263cc02263c04d8e8a384fa0c22c40ea = new L.RegularPolygonMarker(
+                new L.LatLng(38.917118,-77.041626),
+                {
+                    icon : new L.Icon.Default(),
+                    color: 'black',
+                    opacity: 1,
+                    weight: 1,
+                    fillColor: 'blue',
+                    fillOpacity: 0.8,
+                    numberOfSides: 3,
+                    rotation: 0,
+                    radius: 10
+                    }
+                )
+                .addTo(map_8bf7b6d1a14741a5b6aac41438e0428e);
+            
+    
+            var popup_261eb2e98b7e4264b9f78571df5109e1 = L.popup({maxWidth: '300'});
+
+            
+                var html_463be2aa87304f27ba9d7c85cc00ade0 = $('<div id="html_463be2aa87304f27ba9d7c85cc00ade0" style="width: 100.0%; height: 100.0%;">Route 90 to ELLINGTON BRIDGE</div>')[0];
+                popup_261eb2e98b7e4264b9f78571df5109e1.setContent(html_463be2aa87304f27ba9d7c85cc00ade0);
+            
+
+            regular_polygon_marker_263cc02263c04d8e8a384fa0c22c40ea.bindPopup(popup_261eb2e98b7e4264b9f78571df5109e1);
+
+            
+        
+    
+            var regular_polygon_marker_7e04708f46b647d89426b2c29faeb7a6 = new L.RegularPolygonMarker(
+                new L.LatLng(38.907848,-77.045212),
+                {
+                    icon : new L.Icon.Default(),
+                    color: 'black',
+                    opacity: 1,
+                    weight: 1,
+                    fillColor: 'blue',
+                    fillOpacity: 0.8,
+                    numberOfSides: 3,
+                    rotation: 0,
+                    radius: 10
+                    }
+                )
+                .addTo(map_8bf7b6d1a14741a5b6aac41438e0428e);
+            
+    
+            var popup_72320a85a1064da887902dbe256f05de = L.popup({maxWidth: '300'});
+
+            
+                var html_c56bcd3019e34bef867403739d190f37 = $('<div id="html_c56bcd3019e34bef867403739d190f37" style="width: 100.0%; height: 100.0%;">Route D6 to STADIUM-ARMORY</div>')[0];
+                popup_72320a85a1064da887902dbe256f05de.setContent(html_c56bcd3019e34bef867403739d190f37);
+            
+
+            regular_polygon_marker_7e04708f46b647d89426b2c29faeb7a6.bindPopup(popup_72320a85a1064da887902dbe256f05de);
+
+            
+        
+    
+            var regular_polygon_marker_6269a8a4d9f74adaa23540bef42bf6af = new L.RegularPolygonMarker(
+                new L.LatLng(38.901718,-77.038536),
+                {
+                    icon : new L.Icon.Default(),
+                    color: 'black',
+                    opacity: 1,
+                    weight: 1,
+                    fillColor: 'blue',
+                    fillOpacity: 0.8,
+                    numberOfSides: 3,
+                    rotation: 0,
+                    radius: 10
+                    }
+                )
+                .addTo(map_8bf7b6d1a14741a5b6aac41438e0428e);
+            
+    
+            var popup_3984a881790f472a9375565b9d4bde02 = L.popup({maxWidth: '300'});
+
+            
+                var html_5bd59345674045cba12109ffa2b739f9 = $('<div id="html_5bd59345674045cba12109ffa2b739f9" style="width: 100.0%; height: 100.0%;">Route L2 to FARRAGUT SQUARE</div>')[0];
+                popup_3984a881790f472a9375565b9d4bde02.setContent(html_5bd59345674045cba12109ffa2b739f9);
+            
+
+            regular_polygon_marker_6269a8a4d9f74adaa23540bef42bf6af.bindPopup(popup_3984a881790f472a9375565b9d4bde02);
+
+            
+        
+    
+            var regular_polygon_marker_c8bc102063de46209ac67083d4e9d68a = new L.RegularPolygonMarker(
+                new L.LatLng(38.903084,-77.036575),
+                {
+                    icon : new L.Icon.Default(),
+                    color: 'black',
+                    opacity: 1,
+                    weight: 1,
+                    fillColor: 'blue',
+                    fillOpacity: 0.8,
+                    numberOfSides: 3,
+                    rotation: 0,
+                    radius: 10
+                    }
+                )
+                .addTo(map_8bf7b6d1a14741a5b6aac41438e0428e);
+            
+    
+            var popup_bd748083846f4397b525173dd9b0e7e3 = L.popup({maxWidth: '300'});
+
+            
+                var html_c978b325f785447ebc914bc0b07033f2 = $('<div id="html_c978b325f785447ebc914bc0b07033f2" style="width: 100.0%; height: 100.0%;">Route S2 to FEDERAL TRIANGLE</div>')[0];
+                popup_bd748083846f4397b525173dd9b0e7e3.setContent(html_c978b325f785447ebc914bc0b07033f2);
+            
+
+            regular_polygon_marker_c8bc102063de46209ac67083d4e9d68a.bindPopup(popup_bd748083846f4397b525173dd9b0e7e3);
+
+            
+        
+    
+            var regular_polygon_marker_9b699999831e47d5903ad07d022c3229 = new L.RegularPolygonMarker(
+                new L.LatLng(38.909168,-77.031822),
+                {
+                    icon : new L.Icon.Default(),
+                    color: 'black',
+                    opacity: 1,
+                    weight: 1,
+                    fillColor: 'blue',
+                    fillOpacity: 0.8,
+                    numberOfSides: 3,
+                    rotation: 0,
+                    radius: 10
+                    }
+                )
+                .addTo(map_8bf7b6d1a14741a5b6aac41438e0428e);
+            
+    
+            var popup_2504d329500742869e4cbc0ff674ad6f = L.popup({maxWidth: '300'});
+
+            
+                var html_9f22c717075d4494b9a0b14ca4d1ea9d = $('<div id="html_9f22c717075d4494b9a0b14ca4d1ea9d" style="width: 100.0%; height: 100.0%;">Route 52 to TAKOMA STATION</div>')[0];
+                popup_2504d329500742869e4cbc0ff674ad6f.setContent(html_9f22c717075d4494b9a0b14ca4d1ea9d);
+            
+
+            regular_polygon_marker_9b699999831e47d5903ad07d022c3229.bindPopup(popup_2504d329500742869e4cbc0ff674ad6f);
+
+            
+        
+    
+            var regular_polygon_marker_1bbb2dcde2f14b4bb0bbcf7d757d97f7 = new L.RegularPolygonMarker(
+                new L.LatLng(38.902237,-77.048973),
+                {
+                    icon : new L.Icon.Default(),
+                    color: 'black',
+                    opacity: 1,
+                    weight: 1,
+                    fillColor: 'blue',
+                    fillOpacity: 0.8,
+                    numberOfSides: 3,
+                    rotation: 0,
+                    radius: 10
+                    }
+                )
+                .addTo(map_8bf7b6d1a14741a5b6aac41438e0428e);
+            
+    
+            var popup_c68348c404314a0baa3e1b581a8ea6bf = L.popup({maxWidth: '300'});
+
+            
+                var html_67a23e0dddad4593856d03ec3088b684 = $('<div id="html_67a23e0dddad4593856d03ec3088b684" style="width: 100.0%; height: 100.0%;">Route X2 to MINNESOTA AVE STATION</div>')[0];
+                popup_c68348c404314a0baa3e1b581a8ea6bf.setContent(html_67a23e0dddad4593856d03ec3088b684);
+            
+
+            regular_polygon_marker_1bbb2dcde2f14b4bb0bbcf7d757d97f7.bindPopup(popup_c68348c404314a0baa3e1b581a8ea6bf);
+
+            
+        
+    
+            var regular_polygon_marker_2fd6610919f749e7beb56b04b6b44908 = new L.RegularPolygonMarker(
+                new L.LatLng(38.909172,-77.036545),
+                {
+                    icon : new L.Icon.Default(),
+                    color: 'black',
+                    opacity: 1,
+                    weight: 1,
+                    fillColor: 'blue',
+                    fillOpacity: 0.8,
+                    numberOfSides: 3,
+                    rotation: 0,
+                    radius: 10
+                    }
+                )
+                .addTo(map_8bf7b6d1a14741a5b6aac41438e0428e);
+            
+    
+            var popup_bc5f0edd9c224a198d652361cacedb6d = L.popup({maxWidth: '300'});
+
+            
+                var html_5cc1be0e6c8946f2bba811ec53d9b26b = $('<div id="html_5cc1be0e6c8946f2bba811ec53d9b26b" style="width: 100.0%; height: 100.0%;">Route S2 to SILVER SPRING STATION</div>')[0];
+                popup_bc5f0edd9c224a198d652361cacedb6d.setContent(html_5cc1be0e6c8946f2bba811ec53d9b26b);
+            
+
+            regular_polygon_marker_2fd6610919f749e7beb56b04b6b44908.bindPopup(popup_bc5f0edd9c224a198d652361cacedb6d);
+
+            
+        
+    
+            var regular_polygon_marker_2d8996b5d32841febf8efee553f8e602 = new L.RegularPolygonMarker(
+                new L.LatLng(38.903652,-77.039986),
+                {
+                    icon : new L.Icon.Default(),
+                    color: 'black',
+                    opacity: 1,
+                    weight: 1,
+                    fillColor: 'blue',
+                    fillOpacity: 0.8,
+                    numberOfSides: 3,
+                    rotation: 0,
+                    radius: 10
+                    }
+                )
+                .addTo(map_8bf7b6d1a14741a5b6aac41438e0428e);
+            
+    
+            var popup_04248b077c2745e9b73edbb1d3bdbad0 = L.popup({maxWidth: '300'});
+
+            
+                var html_bd828b56e7dc42efba24c2ec99df64e9 = $('<div id="html_bd828b56e7dc42efba24c2ec99df64e9" style="width: 100.0%; height: 100.0%;">Route 42 to GALLERY PLACE</div>')[0];
+                popup_04248b077c2745e9b73edbb1d3bdbad0.setContent(html_bd828b56e7dc42efba24c2ec99df64e9);
+            
+
+            regular_polygon_marker_2d8996b5d32841febf8efee553f8e602.bindPopup(popup_04248b077c2745e9b73edbb1d3bdbad0);
+
+            
+        
+    
+            var regular_polygon_marker_abe8080d06cc4adabb0febf8928b9f94 = new L.RegularPolygonMarker(
+                new L.LatLng(38.90134,-77.042572),
+                {
+                    icon : new L.Icon.Default(),
+                    color: 'black',
+                    opacity: 1,
+                    weight: 1,
+                    fillColor: 'blue',
+                    fillOpacity: 0.8,
+                    numberOfSides: 3,
+                    rotation: 0,
+                    radius: 10
+                    }
+                )
+                .addTo(map_8bf7b6d1a14741a5b6aac41438e0428e);
+            
+    
+            var popup_6df837b03da444d4b00463f8292232d6 = L.popup({maxWidth: '300'});
+
+            
+                var html_0551bf65b58d4148b33602cc9dbfb4be = $('<div id="html_0551bf65b58d4148b33602cc9dbfb4be" style="width: 100.0%; height: 100.0%;">Route 38B to BALLSTON</div>')[0];
+                popup_6df837b03da444d4b00463f8292232d6.setContent(html_0551bf65b58d4148b33602cc9dbfb4be);
+            
+
+            regular_polygon_marker_abe8080d06cc4adabb0febf8928b9f94.bindPopup(popup_6df837b03da444d4b00463f8292232d6);
+
+            
+        
+</script>

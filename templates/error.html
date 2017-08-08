@@ -1,0 +1,15 @@
+<!doctype html>
+<title>Error!</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!--<link rel=stylesheet type=text/css href='{{ url_for('static',filename='style.css')}}'>-->
+<div class=page>
+  <h1>Error</h1>
+  <div class=metanav>
+    <h3>Something with {{culprit}} has gone wrong. <a href='/index'>Back to Home</a></h3>
+	<h4>
+		{{details}}
+	</h4>
+  </div>
+</div>

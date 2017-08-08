@@ -1,0 +1,7 @@
+pandas
+flask
+jinja2
+dill
+pandas
+pip
+simplejson
