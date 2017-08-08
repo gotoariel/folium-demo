@@ -9,7 +9,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-app.vars = {'refresh': False}
+app.vars = {}
 
 @app.route('/')
 def main():
@@ -22,7 +22,7 @@ def index():
   elif request.method == 'POST':
     app.vars['location'] = request.form['location']
     app.vars['radius'] = request.form['radius']
-    app.vars['cache'] = request.form['cache']
+    app.vars['cache'] = request.form.get('cache')
     return redirect('/tracker')
 
 @app.route('/tracker')
@@ -30,9 +30,9 @@ def tracker():
 
   loc = geocoder.google(app.vars['location'])
   bus_map = folium.Map(location=loc.latlng, zoom_start=15)
-  bus_map.add_child(folium.Marker(location = loc.latlng,
-                                  popup = loc.address,
-                                  icon = folium.Icon(color = 'blue')))
+  bus_map.add_child(folium.Marker(location=loc.latlng,
+                                  popup=loc.address,
+                                  icon=folium.Icon(color='blue')))
 
   # Call API for bus locations
 
@@ -53,12 +53,11 @@ def tracker():
 
 @checkpoint(key = string.Template('{0}x{1}_radius{2}.buslist'),
             work_dir = 'cache/',
-            refresh = app.vars['refresh'])
+            refresh = lambda: app.vars.get('refresh', False))
 def get_buses(lat, lon, radius):
   """
   All values passed as strings and radius in meters
   """
-
   headers = {'api_key': os.environ['API_KEY']}
 
   session = requests.Session()
