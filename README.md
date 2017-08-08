@@ -1,8 +1,10 @@
 # folium-demo
 
-A simple Flask app that demonstrates some basic Folium functionality using the WMATA API.
+A barebones Flask app that demonstrates some basic Folium functionality using the WMATA API.
 
 A Jupyter notebook (`demo.ipynb`) goes into more depth, with more examples using GeoJSON and the Walk Score API. An HTML version of the notebook is available as `demo.html`.
+
+This repo is meant to showcase possibilities, not best practices. Don't judge me.
 
 ## Environment
 
