@@ -1,26 +1,26 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
     <title>Live WMATA Bus Tracker</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<!--<link rel=stylesheet type=text/css href='{{ url_for('static',filename='style.css')}}'>-->
-	</head>
-	<body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!--<link rel=stylesheet type=text/css href='{{ url_for('static',filename='style.css')}}'>-->
+  </head>
+  <body>
     <div class=page>
       <h1>WMATA Bus Tracker</h1>
       <div>
-    		<h4>Please enter a location name and radius.</h4>
-    		<form id='input' method='post' action='index'>
+        <h4>Please enter a location name and radius.</h4>
+        <form id='input' method='post' action='index'>
           <p>Location: <input type='text' name='location' /></p>
           <p>Radius (m): <input type='text' name='radius' /></p>
           <!-- <p>Specify route ID or leave blank for all: <input type='text' name='route' /></p> -->
           <p>Use cache? <input type='checkbox' name='cache' value='yes' checked /></p>
           <p><input type="submit" value="Submit"></p>
         </form>
-  		</div>
-		</div>
-	</body>
+      </div>
+    </div>
+  </body>
 </html>
