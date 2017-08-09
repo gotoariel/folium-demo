@@ -15,9 +15,10 @@ An environment is provided in `environment.yml`. Using Conda you can run `conda 
 ## References
 
 The higher level technologies used are:
+* [Conda](https://conda.io/docs/) for package management
+* [Git](https://git-scm.com/) for version control
 * [Heroku](https://www.heroku.com) for web hosting
 * [Jupyter](http://jupyter.org) for Python interactive notebooks
-* [Conda](https://conda.io/docs/) for package management
 
 See the Jupyter notebook for links to documentation relevant to the demos, including Flask, Folium, and links to the APIs used.
 
