@@ -1,14 +1,14 @@
 # Summary
 
-A barebones Flask app that demonstrates some basic Folium functionality using the WMATA API.
+A barebones Flask app that demonstrates some basic Folium functionality using the WMATA API. The boilerplate for hosting the app on Heroku is included.
 
-A Jupyter notebook (`demo.ipynb`) goes into more depth, with more examples using GeoJSON and the Walk Score API. An HTML version of the notebook is available as `demo.html`.
+The core of this demo is the Jupyter notebook (`demo.ipynb`). It goes into depth, with links, comments, and examples including GeoJSON/choropleths and the Walk Score API. An HTML version of the notebook is available as `demo.html`.
 
-This repo is meant to showcase possibilities, not best practices. Don't judge me.
+The rest of the repo takes one of those examples and shows how it can be delivered through a web browser. The code is meant to showcase possibilities, not best practices. Don't judge me.
 
 ## Environment
 
-The code was developed under Python 2.7 on Ubuntu 16.04.
+The project was developed under Python 2.7 on Ubuntu 16.04.
 
 An environment is provided in `environment.yml`. Using Conda you can run `conda env create -f environment.yml` to create a virtual environment with all the dependencies for both the Flask app and Jupyter notebook.
 
