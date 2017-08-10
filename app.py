@@ -59,7 +59,7 @@ def get_buses(lat, lon, radius):
   """
   All values passed as strings and radius in meters
   """
-  headers = {'api_key': os.environ['API_KEY']}
+  headers = {'api_key': os.environ['WMATA_KEY']}
 
   session = requests.Session()
   session.mount('https://api.wmata.com',
