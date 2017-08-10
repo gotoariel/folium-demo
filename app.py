@@ -88,6 +88,3 @@ def error():
 if __name__ == '__main__':
   urls = []
   app.run(port=33507)
-  for rule in app.url_map.iter_rules():
-    urls.append(url_for(rule.endpoint))
-  print urls
