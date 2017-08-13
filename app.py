@@ -5,7 +5,7 @@ import string
 import os
 
 from ediblepickle import checkpoint
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_file
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -13,9 +13,9 @@ app.vars = {}
 
 @app.route('/')
 def main():
-  return redirect('/index')
+  return redirect('/index.html')
 
-@app.route('/index', methods=['GET', 'POST'])
+@app.route('/index.html', methods=['GET', 'POST'])
 def index():
   if request.method == 'GET':
     return render_template('input.html')
@@ -24,9 +24,13 @@ def index():
     app.vars['radius'] = request.form['radius']
     # app.vars['route'] = request.form.get('route')
     app.vars['cache'] = request.form.get('cache')
-    return redirect('/tracker')
+    return redirect('/tracker.html')
 
-@app.route('/tracker')
+@app.route('/maps/map.html')
+def show_map():
+  return send_file('./maps/map.html')
+
+@app.route('/tracker.html')
 def tracker():
 
   loc = geocoder.google(app.vars['location'])
@@ -48,9 +52,9 @@ def tracker():
                                          weight = 1,
                                          fill_opacity = 0.8,
                                          rotation = 30).add_to(bus_map)
-  bus_map.save('templates/map.html') 
+  bus_map.save('./maps/map.html') 
   
-  return render_template('map.html')
+  return render_template('display.html')
 
 @checkpoint(key = string.Template('{0}x{1}_radius{2}.buslist'),
             work_dir = 'cache/',
@@ -76,11 +80,11 @@ def get_buses(lat, lon, radius):
 
   response = session.get(bus_endpoint, params = params, headers = headers)
   if not response.status_code == 200:
-    return redirect('/error')
+    return redirect('/error.html')
   else:
     return response.json()['BusPositions']
 
-@app.route('/error')
+@app.route('/error.html')
 def error():
   details = "There was an error with one of the API calls you attempted."
   return render_template('error.html', culprit='API', details=details)
