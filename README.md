@@ -1,6 +1,6 @@
 # Summary
 
-A barebones Flask app that demonstrates some basic Folium functionality using the WMATA API. The boilerplate for hosting the app on Heroku is included.
+A barebones Flask app that demonstrates some basic Folium functionality using the WMATA API. This exact repository is hosted on Heroku [here](http://whorl.herokuapp.com).
 
 The core of this demo is the Jupyter notebook (`demo.ipynb`). It goes into depth, with links, comments, and examples including GeoJSON/choropleths and the Walk Score API. An HTML version of the notebook is available as `demo.html`.
 
@@ -18,7 +18,7 @@ The higher level technologies used are:
 * [Conda](https://conda.io/docs/) for package management
 * [Git](https://git-scm.com/) for version control
 * [Heroku](https://www.heroku.com) for web hosting
-* [Jupyter](http://jupyter.org) for Python interactive notebooks
+* [Jupyter](http://jupyter.org) for interactive Python notebooks
 
 See the Jupyter notebook for links to documentation relevant to the demos, including Flask, Folium, and links to the APIs used.
 
