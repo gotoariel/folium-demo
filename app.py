@@ -9,6 +9,7 @@ from flask import Flask, render_template, request, redirect, url_for, send_file
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0  # prevents browser caching maps
 app.vars = {}
 
 @app.route('/')
@@ -32,7 +33,6 @@ def show_map():
 
 @app.route('/tracker.html')
 def tracker():
-
   loc = geocoder.google(app.vars['location'])
   bus_map = folium.Map(location=loc.latlng, zoom_start=15)
   bus_map.add_child(folium.Marker(location=loc.latlng,
