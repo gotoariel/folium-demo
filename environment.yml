@@ -1,113 +1,17 @@
 name: folium-demo
 dependencies:
-- backports=1.0=py27_0
-- backports_abc=0.5=py27_0
-- bleach=1.5.0=py27_0
-- cairo=1.14.8=0
-- click=6.7=py27_0
-- configparser=3.5.0=py27_0
-- cycler=0.10.0=py27_0
-- dbus=1.10.20=0
-- decorator=4.1.2=py27_0
-- dill=0.2.6=py27_0
-- entrypoints=0.2.3=py27_0
-- enum34=1.1.6=py27_0
-- expat=2.1.0=0
-- flask=0.12.2=py27_0
-- fontconfig=2.12.1=3
-- freetype=2.5.5=2
-- functools32=3.2.3.2=py27_0
-- get_terminal_size=1.0.0=py27_0
-- glib=2.50.2=1
-- gst-plugins-base=1.8.0=0
-- gstreamer=1.8.0=0
-- html5lib=0.9999999=py27_0
-- icu=54.1=0
-- ipykernel=4.6.1=py27_0
-- ipython=5.3.0=py27_0
-- ipython_genutils=0.2.0=py27_0
-- ipywidgets=6.0.0=py27_0
-- itsdangerous=0.24=py27_0
-- jinja2=2.9.6=py27_0
-- jpeg=9b=0
-- jsonschema=2.6.0=py27_0
-- jupyter=1.0.0=py27_3
-- jupyter_client=5.1.0=py27_0
-- jupyter_console=5.1.0=py27_0
-- jupyter_core=4.3.0=py27_0
-- libffi=3.2.1=1
-- libgcc=5.2.0=0
-- libiconv=1.14=0
-- libpng=1.6.27=0
-- libsodium=1.0.10=0
-- libxcb=1.12=1
-- libxml2=2.9.4=0
-- markupsafe=0.23=py27_2
-- matplotlib=2.0.2=np113py27_0
-- mistune=0.7.4=py27_0
-- mkl=2017.0.3=0
-- nbconvert=5.2.1=py27_0
-- nbformat=4.3.0=py27_0
-- notebook=5.0.0=py27_0
-- numpy=1.13.1=py27_0
-- openssl=1.0.2l=0
-- pandas=0.20.3=py27_0
-- pandocfilters=1.4.1=py27_0
-- path.py=10.3.1=py27_0
-- pathlib2=2.3.0=py27_0
-- pcre=8.39=1
-- pexpect=4.2.1=py27_0
-- pickleshare=0.7.4=py27_0
-- pip=9.0.1=py27_1
-- pixman=0.34.0=0
-- prompt_toolkit=1.0.14=py27_0
-- ptyprocess=0.5.2=py27_0
-- pycairo=1.10.0=py27_0
-- pygments=2.2.0=py27_0
-- pyparsing=2.2.0=py27_0
-- pyqt=5.6.0=py27_2
-- python=2.7.13=0
-- python-dateutil=2.6.1=py27_0
-- pytz=2017.2=py27_0
-- pyzmq=16.0.2=py27_0
-- qt=5.6.2=5
-- qtconsole=4.3.0=py27_0
-- readline=6.2=2
-- scandir=1.5=py27_0
-- setuptools=27.2.0=py27_0
-- simplegeneric=0.8.1=py27_1
-- simplejson=3.11.1=py27_0
-- singledispatch=3.4.0.3=py27_0
-- sip=4.18=py27_0
-- six=1.10.0=py27_0
-- sqlite=3.13.0=0
-- ssl_match_hostname=3.4.0.2=py27_1
-- subprocess32=3.2.7=py27_0
-- terminado=0.6=py27_0
-- testpath=0.3.1=py27_0
-- tk=8.5.18=0
-- tornado=4.5.1=py27_0
-- traitlets=4.3.2=py27_0
-- wcwidth=0.1.7=py27_0
-- werkzeug=0.12.2=py27_0
-- wheel=0.29.0=py27_0
-- widgetsnbextension=2.0.0=py27_0
-- zeromq=4.1.5=0
-- zlib=1.2.8=3
-- pip:
-  - backports-abc==0.5
-  - backports.shutil-get-terminal-size==1.0.0
-  - backports.ssl-match-hostname==3.4.0.2
-  - branca==0.2.0
-  - ediblepickle==1.1.3
-  - folium==0.3.0
-  - geocoder==1.20.0
-  - gunicorn==19.3.0
-  - ipython-genutils==0.2.0
-  - jupyter-client==5.1.0
-  - jupyter-console==5.1.0
-  - jupyter-core==4.3.0
-  - prompt-toolkit==1.0.14
-  - ratelim==0.1.6
-  - requests==2.9.1
-
+  - python=3.6
+  - jupyterlab
+  - requests
+  - gunicorn
+  - flask
+  - jinja2
+  - numpy
+  - matplotlib
+  - pandas
+  - dill
+  - simplejson
+  - pip:
+    - folium==0.6.0
+    - geocoder
+    - ediblepickle
