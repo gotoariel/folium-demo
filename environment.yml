@@ -1,4 +1,4 @@
-name: folium-demo
+name: whorl
 dependencies:
   - python=3.7.0
   - jupyterlab
