@@ -1,5 +1,0 @@
-gunicorn
-requests
-folium==0.6.0
-geocoder
-ediblepickle
