@@ -1,16 +1,10 @@
-name: whorl
+name: folium-webapp
 dependencies:
   - python=3.7.0
-  - jupyterlab
   - requests
   - gunicorn
   - flask
   - jinja2
-  - numpy
-  - matplotlib
-  - pandas
-  - dill
-  - simplejson
   - pip:
     - folium==0.6.0
     - geocoder

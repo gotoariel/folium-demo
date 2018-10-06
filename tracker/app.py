@@ -52,7 +52,7 @@ def tracker():
                                          weight = 1,
                                          fill_opacity = 0.8,
                                          rotation = 30).add_to(bus_map)
-  bus_map.save('./maps/map.html') 
+  bus_map.save('maps/map.html') 
   
   return render_template('display.html')
 

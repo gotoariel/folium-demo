@@ -1,0 +1,11 @@
+name: folium-demo
+dependencies:
+  - python=3.7.0
+  - conda-forge::jupyterlab
+  - requests
+  - pandas
+  - matplotlib
+  - pip:
+    - folium==0.6.0
+    - geocoder
+    - ediblepickle
