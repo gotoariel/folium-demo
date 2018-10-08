@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath . tracker.wsgi --log-file=-
+web: gunicorn --pythonpath . tracker --log-file=-
