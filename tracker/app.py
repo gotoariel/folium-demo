@@ -90,5 +90,4 @@ def error():
   return render_template('error.html', culprit='API', details=details)
 
 if __name__ == '__main__':
-  urls = []
-  app.run(port=33507)
+  app.run(host='0.0.0.0')

@@ -1,0 +1,8 @@
+folium==0.6.0
+geocoder
+ediblepickle
+requests
+gunicorn
+flask
+jinja2
+werkzeug
