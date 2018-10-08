@@ -1,1 +1,1 @@
-from app import app as application
+from tracker.app import app as application
