@@ -1,1 +1,1 @@
-web: gunicorn tracker/app:app --log-file=-
+web: gunicorn --pythonpath . tracker.app --log-file=-
