@@ -6,3 +6,4 @@ gunicorn
 flask
 jinja2
 werkzeug
+wsgiref
