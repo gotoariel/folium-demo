@@ -29,13 +29,14 @@ def index():
 
 @app.route('/maps/map.html')
 def show_map():
-  return send_file('./maps/map.html')
+  return send_file(os.path.join(app.root_path, 'maps/map.html'))
 
 @app.route('/tracker.html')
 def tracker():
-  loc = geocoder.google(app.vars['location'])
-  bus_map = folium.Map(location=loc.latlng, zoom_start=15)
-  bus_map.add_child(folium.Marker(location=loc.latlng,
+  loc = geocoder.osm(app.vars['location'])
+  latlng = [loc.lat, loc.lng]
+  bus_map = folium.Map(location=latlng, zoom_start=15)
+  bus_map.add_child(folium.Marker(location=latlng,
                                   popup=loc.address,
                                   icon=folium.Icon(color='blue')))
 
@@ -52,17 +53,18 @@ def tracker():
                                          weight = 1,
                                          fill_opacity = 0.8,
                                          rotation = 30).add_to(bus_map)
-  bus_map.save('maps/map.html') 
+  bus_map.save(os.path.join(app.root_path, 'maps/map.html'))
   
   return render_template('display.html')
 
 @checkpoint(key = string.Template('{0}x{1}_radius{2}.buslist'),
-            work_dir = 'cache/',
+            work_dir = os.path.join(app.root_path, 'cache/'),
             refresh = lambda: app.vars.get('refresh', False))
 def get_buses(lat, lon, radius):
   """
   All values passed as strings and radius in meters
   """
+  print(app.vars.get("refresh"))
   headers = {'api_key': os.environ['WMATA_KEY']}
 
   session = requests.Session()
