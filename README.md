@@ -10,7 +10,7 @@ The project was ~~developed under Python 2.7~~ updated to Python 3.7!
 
 * The webapp environment is specified in `requirements.txt`
 	* You will need to have the `WMATA_KEY` environment variable set to your WMATA API key
-* The demo environment is provided in `demo/environment.yml`
+* The demo environment is provided in `environment.yml`
 	* You will need to put your API keys in files `demo/secrets/.wmata` and `demo/secrets/.walkscore`
 
 ## References
