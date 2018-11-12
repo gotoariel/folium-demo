@@ -8,7 +8,7 @@ The rest of the repo takes one of those examples and shows how it can be deliver
 
 ## Environment
 
-The project was developed under Python 2.7 on Ubuntu 16.04.
+The project was ~~developed under Python 2.7~~ updated to Python 3.7!
 
 An environment is provided in `environment.yml`. Using Conda you can run `conda env create -f environment.yml` to create a virtual environment with all the dependencies for both the Flask app and Jupyter notebook.
 
@@ -24,23 +24,18 @@ See the Jupyter notebook for links to documentation relevant to the demos, inclu
 
 ### Heroku quickstart
 
-To push a repository to Heroku, the following files are important:
-* `Procfile`
-* `runtime.txt`
-* `requirements.txt`
-* `conda-requirements.txt`
+Option A (*Suggested*): Use the [Python buildpack](https://github.com/heroku/heroku-buildpack-python) and deploy with Git.
 
-(*Suggested*) Use the [Conda buildpack](https://github.com/kennethreitz/conda-buildpack). If you choose not to, put all requirements into `requirements.txt`.
+Option B: If you end up needing a lot of packages or want to use Conda, you can try [deploying with Docker](https://devcenter.heroku.com/categories/deploying-with-docker).
 
-Note that the Conda buildpack is being deprecated in favor of a Docker implementation.
+1. Download the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and sign in with `heroku login`.
+1. Create a Heroku application with `heroku create <app_name> --buildpack heroku/python` or leave the name blank to auto-generate one.
+1. Make a `requirements.txt` file with all dependencies for the app.
+1. Make a `runtime.txt` file that specifies the Python runtime version, eg. `python-3.7.0`.
+1. Make a `Procfile` that has eg. `web: gunicorn --pythonpath . tracker --log-file=-`.
+1. Deploy the repo to Heroku by `git push heroku master`. You should be able to access your app at `https://<app_name>.herokuapp.com`.
 
-Download the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and sign in with `heroku login`.
-
-Create a Heroku application with `heroku create <app_name>` or leave blank to auto-generate a name.
-
-Deploy the repo to Heroku by `git push heroku master`. You should be able to access your app at `https://<app_name>.herokuapp.com`.
-
-There is a [quickstart guide](https://devcenter.heroku.com/articles/getting-started-with-python-o) available as a reference.
+There is a [quickstart guide](https://devcenter.heroku.com/articles/getting-started-with-python) available as a reference.
 
 ## Debugging
 
