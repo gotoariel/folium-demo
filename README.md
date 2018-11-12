@@ -1,6 +1,7 @@
 # Summary
 
-**demo/**: Interactive notebooks that go into depth, with links, comments, and examples including GeoJSON/choropleths and the Walk Score API. An HTML version of the notebook is available as `demo.html`.
+**demo/**: Interactive notebooks that go into depth, with links, comments, and examples including GeoJSON/choropleths and the Walk Score API. You can click the badge to play around with the code on Binder, and view a static HTML render of the notebook, but without API keys some of the interactive functionality won't work.
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/gotoariel/folium-demo/master)
 
 **tracker/**: A barebones Flask app that demonstrates some basic Folium functionality using the WMATA API. This exact repository is hosted on Heroku [here](http://whorl.herokuapp.com). It takes one of the demo examples and shows how it can be delivered through a web browser. The code is meant to showcase possibilities, not best practices. Don't judge me.
 
