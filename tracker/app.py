@@ -34,7 +34,11 @@ def show_map():
 @app.route('/tracker.html')
 def tracker():
   loc = geocoder.osm(app.vars['location'])
-  latlng = [loc.lat, loc.lng]
+  if loc.lat is not None and loc.lng is not None:
+    latlng = [loc.lat, loc.lng]
+  else:
+    return redirect('/geoerror.html')
+  
   bus_map = folium.Map(location=latlng, zoom_start=15)
   bus_map.add_child(folium.Marker(location=latlng,
                                   popup=loc.address,
@@ -82,14 +86,20 @@ def get_buses(lat, lon, radius):
 
   response = session.get(bus_endpoint, params = params, headers = headers)
   if not response.status_code == 200:
-    return redirect('/error.html')
+    return redirect('/apierror.html')
   else:
     return response.json()['BusPositions']
 
-@app.route('/error.html')
-def error():
+@app.route('/apierror.html')
+def apierror():
   details = "There was an error with one of the API calls you attempted."
   return render_template('error.html', culprit='API', details=details)
+
+@app.route('/geoerror.html')
+def geoerror():
+  details = "There was a problem getting coordinates for the location you requested."
+  return render_template('error.html', culprit='Geocoder', details=details)
+
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0')
