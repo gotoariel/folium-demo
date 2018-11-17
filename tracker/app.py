@@ -23,7 +23,7 @@ def index():
     app.vars['location'] = request.form['location']
     app.vars['radius'] = request.form['radius']
     # app.vars['route'] = request.form.get('route')
-    app.vars['cache'] = request.form.get('cache')
+    # app.vars['cache'] = request.form.get('cache')
     app.vars['map_path'] = f"maps/map-{app.vars['location']}-{app.vars['radius']}.html"
     return redirect('/tracker.html')
 
@@ -34,7 +34,7 @@ def show_map():
 
 @app.route('/tracker.html')
 def tracker():
-  loc = geocoder.osm(app.vars['location'])
+  loc = geocoder.osm(app.vars.get('location'))
   if loc.lat is not None and loc.lng is not None:
     latlng = [loc.lat, loc.lng]
   else:
