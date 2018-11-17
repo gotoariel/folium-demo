@@ -3,13 +3,29 @@ import folium
 import geocoder
 import string
 import os
+import json
+from functools import wraps, update_wrapper
+from datetime import datetime
 
 from ediblepickle import checkpoint
-from flask import Flask, render_template, request, redirect, url_for, send_file
+from flask import Flask, render_template, request, redirect, url_for, send_file, make_response
+
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.vars = {}
+
+def nocache(view):
+  @wraps(view)
+  def no_cache(*args, **kwargs):
+    response = make_response(view(*args, **kwargs))
+    response.headers['Last-Modified'] = datetime.now()
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '-1'
+    return response
+        
+  return update_wrapper(no_cache, view)
 
 @app.route('/')
 def main():
@@ -23,11 +39,12 @@ def index():
     app.vars['location'] = request.form['location']
     app.vars['radius'] = request.form['radius']
     # app.vars['route'] = request.form.get('route')
-    # app.vars['cache'] = request.form.get('cache')
+    app.vars['cache'] = request.form.get('cache')
     app.vars['map_path'] = f"maps/map-{app.vars['location']}-{app.vars['radius']}.html"
     return redirect('/tracker.html')
 
 @app.route('/maps/map.html')
+@nocache
 def show_map():
   map_path = app.vars.get("map_path")
   return send_file(os.path.join(app.root_path, map_path))
@@ -50,12 +67,11 @@ def tracker():
                                   icon=folium.Icon(color='blue')))
 
     # Call API for bus locations
-
     bus_list = get_buses(loc.lat, loc.lng, app.vars['radius'])
 
     for bus in bus_list:
       folium.features.RegularPolygonMarker(location = [bus['Lat'], bus['Lon']],
-                                           popup = 'Route %s to %s' % (bus['RouteID'], bus['TripHeadsign']),
+                                           popup = f"Route {bus['RouteID']} to {bus['TripHeadsign']}".replace(r"'", r"\'"),
                                            number_of_sides = 3,
                                            radius = 15,
                                            weight = 1,
