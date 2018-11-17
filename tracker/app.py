@@ -15,6 +15,12 @@ app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.vars = {}
 
+def escape_apostrophes(string):
+  return string.replace(r"'", r"\'")
+
+def escape_spaces(string):
+  return string.replace(" ", "_")
+
 def nocache(view):
   @wraps(view)
   def no_cache(*args, **kwargs):
@@ -40,7 +46,7 @@ def index():
     app.vars['radius'] = request.form['radius']
     # app.vars['route'] = request.form.get('route')
     app.vars['cache'] = request.form.get('cache')
-    escaped_location = request.form['location'].replace(" ", "_")
+    escaped_location = escape_spaces(app.vars['location'])
     app.vars['map_path'] = f"maps/map-{escaped_location}-{app.vars['radius']}.html"
     return redirect('/tracker.html')
 
@@ -58,21 +64,26 @@ def tracker():
   else:
     return redirect('/geoerror.html')
   
+  # insist on a valid map path
   map_path = app.vars.get("map_path")
+  if not map_path:
+    return redirect('/error.html')
   if app.vars.get("cache") == "yes" and os.path.isfile(os.path.join(app.root_path, map_path)):
     return render_template('display.html')
   else:
     bus_map = folium.Map(location=latlng, zoom_start=15)
     bus_map.add_child(folium.Marker(location=latlng,
-                                  popup=loc.address,
-                                  icon=folium.Icon(color='blue')))
+                                    popup=escape_apostrophes(loc.address),
+                                    icon=folium.Icon(color='blue')))
 
     # Call API for bus locations
     bus_list = get_buses(loc.lat, loc.lng, app.vars['radius'])
 
     for bus in bus_list:
+      route_id = bus.get('RouteID')
+      trip_headsign = escape_apostrophes(bus.get('TripHeadsign'))
       folium.features.RegularPolygonMarker(location = [bus['Lat'], bus['Lon']],
-                                           popup = f"Route {bus['RouteID']} to {bus['TripHeadsign']}".replace(r"'", r"\'"),
+                                           popup = f"Route {route_id} to {trip_headsign}",
                                            number_of_sides = 3,
                                            radius = 15,
                                            weight = 1,
@@ -107,6 +118,11 @@ def get_buses(lat, lon, radius):
     return redirect('/apierror.html')
   else:
     return response.json()['BusPositions']
+
+@app.route('/error.html')
+def error():
+  details = "There was some kind of error."
+  return render_template('error.html', culprit='logic', details=details)
 
 @app.route('/apierror.html')
 def apierror():
