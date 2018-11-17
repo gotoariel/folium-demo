@@ -5,7 +5,7 @@ Interactive notebooks that go into depth, with links, comments, and examples inc
 
 <a href="https://colab.research.google.com/drive/14lEUPAaoI_xKydV-0M29JwBs2ArZxPXN" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-You can also download and view a [static HTML version of the notebook](https://github.com/gotoariel/folium-demo/raw/master/demo/demo.html).
+You can also view a [static HTML version of the notebook](https://nbviewer.jupyter.org/github/gotoariel/folium-demo/blob/master/demo/demo.html).
 
 ### tracker/
 A barebones Flask app that demonstrates some basic Folium functionality using the WMATA API. This exact repository is hosted on Heroku [here](http://whorl.herokuapp.com). It takes one of the demo examples and shows how it can be delivered through a web browser. The code is meant to showcase possibilities, not best practices. Don't judge me.
