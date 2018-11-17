@@ -1,9 +1,14 @@
 # Summary
 
-**demo/**: Interactive notebooks that go into depth, with links, comments, and examples including GeoJSON/choropleths and the Walk Score API. You can click the badge to play around with the code on Binder, and view a static HTML render of the notebook, but without API keys some of the interactive functionality won't work.
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/gotoariel/folium-demo/master)
+### demo/
+Interactive notebooks that go into depth, with links, comments, and examples including GeoJSON/choropleths and the Walk Score API. You can click the badge to play around with the code on Google Colaboratory, but without API keys some of the live data functionality won't work.
 
-**tracker/**: A barebones Flask app that demonstrates some basic Folium functionality using the WMATA API. This exact repository is hosted on Heroku [here](http://whorl.herokuapp.com). It takes one of the demo examples and shows how it can be delivered through a web browser. The code is meant to showcase possibilities, not best practices. Don't judge me.
+<a href="https://colab.research.google.com/drive/14lEUPAaoI_xKydV-0M29JwBs2ArZxPXN" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
+You can also download and view a [static HTML version of the notebook](https://github.com/gotoariel/folium-demo/raw/master/demo/demo.html).
+
+### tracker/
+A barebones Flask app that demonstrates some basic Folium functionality using the WMATA API. This exact repository is hosted on Heroku [here](http://whorl.herokuapp.com). It takes one of the demo examples and shows how it can be delivered through a web browser. The code is meant to showcase possibilities, not best practices. Don't judge me.
 
 ## Environment
 
@@ -43,4 +48,4 @@ There is a [quickstart guide](https://devcenter.heroku.com/articles/getting-star
 
 You can run Flask apps locally by eg. `python app.py`. This app will run at `localhost:33507`.
 
-`heroku logs` can display remote logs from your app, however `heroku local` will run the app at `localhost:5000` and will be more useful for debugging.
+`heroku logs` can display remote logs from your app, however `heroku local` will run the app at `localhost:5000` and will be more useful for debugging. Remember to put WMATA_KEY in the environment.
