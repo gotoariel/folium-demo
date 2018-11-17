@@ -40,7 +40,8 @@ def index():
     app.vars['radius'] = request.form['radius']
     # app.vars['route'] = request.form.get('route')
     app.vars['cache'] = request.form.get('cache')
-    app.vars['map_path'] = f"maps/map-{app.vars['location'].replace(" ", "_")}-{app.vars['radius']}.html"
+    escaped_location = request.form['location'].replace(" ", "_")
+    app.vars['map_path'] = f"maps/map-{escaped_location}-{app.vars['radius']}.html"
     return redirect('/tracker.html')
 
 @app.route('/maps/map.html')
