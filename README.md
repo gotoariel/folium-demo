@@ -5,7 +5,9 @@ Interactive notebooks that go into depth, with links, comments, and examples inc
 
 <a href="https://colab.research.google.com/drive/14lEUPAaoI_xKydV-0M29JwBs2ArZxPXN" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-You can also view a [static HTML version of the notebook](https://nbviewer.jupyter.org/github/gotoariel/folium-demo/blob/master/demo/demo.html).
+You can also view static versions on nbviewer:
+* [notebook](http://nbviewer.jupyter.org/github/gotoariel/folium-demo/blob/master/demo/demo.ipynb)
+* [HTML](https://nbviewer.jupyter.org/github/gotoariel/folium-demo/blob/master/demo/demo.html)
 
 ### tracker/
 A barebones Flask app that demonstrates some basic Folium functionality using the WMATA API. This exact repository is hosted on Heroku [here](http://whorl.herokuapp.com). It takes one of the demo examples and shows how it can be delivered through a web browser. The code is meant to showcase possibilities, not best practices. Don't judge me.
@@ -46,6 +48,6 @@ There is a [quickstart guide](https://devcenter.heroku.com/articles/getting-star
 
 ## Debugging
 
-You can run Flask apps locally by eg. `python app.py`. This app will run at `localhost:33507`.
-
-`heroku logs` can display remote logs from your app, however `heroku local` will run the app at `localhost:5000` and will be more useful for debugging. Remember to put WMATA_KEY in the environment.
+`heroku logs` can display remote logs from your app, however `heroku local` will run the app at `localhost:5000` and will be more useful for debugging.
+* Remember to put WMATA_KEY in the environment
+* The app will need to reach the public internet for geocoding

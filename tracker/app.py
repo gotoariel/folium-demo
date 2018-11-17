@@ -25,11 +25,13 @@ def index():
     app.vars['radius'] = request.form['radius']
     # app.vars['route'] = request.form.get('route')
     app.vars['cache'] = request.form.get('cache')
+    app.vars['map_path'] = f"maps/map-{app.vars['location']}-{app.vars['radius']}.html"
     return redirect('/tracker.html')
 
 @app.route('/maps/map.html')
 def show_map():
-  return send_file(os.path.join(app.root_path, 'maps/map.html'))
+  map_path = app.vars.get("map_path")
+  return send_file(os.path.join(app.root_path, map_path))
 
 @app.route('/tracker.html')
 def tracker():
@@ -39,36 +41,36 @@ def tracker():
   else:
     return redirect('/geoerror.html')
   
-  bus_map = folium.Map(location=latlng, zoom_start=15)
-  bus_map.add_child(folium.Marker(location=latlng,
+  map_path = app.vars.get("map_path")
+  if app.vars.get("cache") == "yes" and os.path.isfile(os.path.join(app.root_path, map_path)):
+    return render_template('display.html')
+  else:
+    bus_map = folium.Map(location=latlng, zoom_start=15)
+    bus_map.add_child(folium.Marker(location=latlng,
                                   popup=loc.address,
                                   icon=folium.Icon(color='blue')))
 
-  # Call API for bus locations
+    # Call API for bus locations
 
-  app.vars['refresh'] = False if app.vars['cache'] == 'yes' else True
-  bus_list = get_buses(loc.lat, loc.lng, app.vars['radius'])
+    bus_list = get_buses(loc.lat, loc.lng, app.vars['radius'])
 
-  for bus in bus_list:
-    folium.features.RegularPolygonMarker(location = [bus['Lat'], bus['Lon']],
-                                         popup = 'Route %s to %s' % (bus['RouteID'], bus['TripHeadsign']),
-                                         number_of_sides = 3,
-                                         radius = 15,
-                                         weight = 1,
-                                         fill_opacity = 0.8,
-                                         rotation = 30).add_to(bus_map)
-  bus_map.save(os.path.join(app.root_path, 'maps/map.html'))
+    for bus in bus_list:
+      folium.features.RegularPolygonMarker(location = [bus['Lat'], bus['Lon']],
+                                           popup = 'Route %s to %s' % (bus['RouteID'], bus['TripHeadsign']),
+                                           number_of_sides = 3,
+                                           radius = 15,
+                                           weight = 1,
+                                           fill_opacity = 0.8,
+                                           rotation = 30).add_to(bus_map)
   
-  return render_template('display.html')
+    bus_map.save(os.path.join(app.root_path, map_path))
+    return render_template('display.html')
+  pass
 
-@checkpoint(key = string.Template('{0}x{1}_radius{2}.buslist'),
-            work_dir = os.path.join(app.root_path, 'cache/'),
-            refresh = lambda: app.vars.get('refresh', False))
 def get_buses(lat, lon, radius):
   """
   All values passed as strings and radius in meters
   """
-  print(app.vars.get("refresh"))
   headers = {'api_key': os.environ['WMATA_KEY']}
 
   session = requests.Session()
