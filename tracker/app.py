@@ -6,6 +6,7 @@ import os
 import json
 from functools import wraps, update_wrapper
 from datetime import datetime
+from pathlib import Path
 
 from ediblepickle import checkpoint
 from flask import Flask, render_template, request, redirect, url_for, send_file, make_response
@@ -47,14 +48,19 @@ def index():
     # app.vars['route'] = request.form.get('route')
     app.vars['cache'] = request.form.get('cache')
     escaped_location = escape_spaces(app.vars['location'])
-    app.vars['map_path'] = f"maps/map-{escaped_location}-{app.vars['radius']}.html"
+    map_name = f"map-{escaped_location}-{app.vars['radius']}.html"
+    app.vars['map_path'] = os.path.join(app.root_path, 'maps/' + map_name)
     return redirect('/tracker.html')
 
 @app.route('/maps/map.html')
 @nocache
 def show_map():
   map_path = app.vars.get("map_path")
-  return send_file(os.path.join(app.root_path, map_path))
+  map_file = Path(map_path)
+  if map_file.exists():
+    return send_file(map_path)
+  else:
+    return render_template('error.html', culprit='map file', details="the map file couldn't be loaded")
 
 @app.route('/tracker.html')
 def tracker():
@@ -64,11 +70,11 @@ def tracker():
   else:
     return redirect('/geoerror.html')
   
-  # insist on a valid map path
+  # insist on a valid map config
   map_path = app.vars.get("map_path")
   if not map_path:
     return redirect('/error.html')
-  if app.vars.get("cache") == "yes" and os.path.isfile(os.path.join(app.root_path, map_path)):
+  if app.vars.get("cache") == "yes" and Path(map_path).exists():
     return render_template('display.html')
   else:
     bus_map = folium.Map(location=latlng, zoom_start=15)
@@ -90,7 +96,7 @@ def tracker():
                                            fill_opacity = 0.8,
                                            rotation = 30).add_to(bus_map)
   
-    bus_map.save(os.path.join(app.root_path, map_path))
+    bus_map.save(map_path)
     return render_template('display.html')
   pass
 
