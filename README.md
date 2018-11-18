@@ -21,6 +21,8 @@ The project was ~~developed under Python 2.7~~ updated to Python 3.7!
 * The demo environment is provided in `environment.yml`
 	* You will need to put your API keys in files `demo/secrets/.wmata` and `demo/secrets/.walkscore`
 
+You can get a [temporary guest API key](https://developer.wmata.com/Products) for WMATA.
+
 ## References
 
 The higher level technologies used are:
@@ -46,8 +48,15 @@ Option B: If you end up needing a lot of packages or want to use Conda, you can 
 
 There is a [quickstart guide](https://devcenter.heroku.com/articles/getting-started-with-python) available as a reference.
 
-## Debugging
+#### Debugging
 
 `heroku logs` can display remote logs from your app, however `heroku local` will run the app at `localhost:5000` and will be more useful for debugging.
 * Remember to put WMATA_KEY in the environment
 * The app will need to reach the public internet for geocoding
+
+### Relevant links
+* [Submarine cable map](https://submarine-cable-map-2015.telegeography.com/)
+* [Color Brewer](http://colorbrewer2.org/#type=sequential&scheme=GnBu&n=9)
+* [Time slider choropleth in Folium](https://nbviewer.jupyter.org/github/python-visualization/folium/blob/master/examples/TimeSliderChoropleth.ipynb)
+* [US map from bodies of water](https://www.popularmechanics.com/science/a24199/gorgeous-map-united-states-bodies-of-water/)
+* [US map from buildings](https://www.nytimes.com/interactive/2018/10/12/us/map-of-every-building-in-the-united-states.html)
