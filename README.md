@@ -40,7 +40,7 @@ Option B: If you end up needing a lot of packages or want to use Conda, you can 
 1. Download the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and sign in with `heroku login`.
 1. Create a Heroku application with `heroku create <app_name> --buildpack heroku/python` or leave the name blank to auto-generate one.
 1. Make a `requirements.txt` file with all dependencies for the app.
-1. Make a `runtime.txt` file that specifies the Python runtime version, eg. `python-3.7.0`.
+1. Make a `runtime.txt` file that specifies the Python runtime version, eg. `python-3.7.1`.
 1. Make a `Procfile` that has eg. `web: gunicorn --pythonpath . tracker --log-file=-`.
 1. Deploy the repo to Heroku by `git push heroku master`. You should be able to access your app at `https://<app_name>.herokuapp.com`.
 
