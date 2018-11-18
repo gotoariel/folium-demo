@@ -6,7 +6,7 @@ Interactive notebooks that go into depth, with links, comments, and examples inc
 <a href="https://colab.research.google.com/drive/14lEUPAaoI_xKydV-0M29JwBs2ArZxPXN" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 You can also view static versions on nbviewer:
-* [notebook](http://nbviewer.jupyter.org/github/gotoariel/folium-demo/blob/master/demo/demo.ipynb)
+* [notebook](https://nbviewer.jupyter.org/github/gotoariel/folium-demo/blob/master/demo/demo.ipynb)
 * [HTML](https://nbviewer.jupyter.org/github/gotoariel/folium-demo/blob/master/demo/demo.html)
 
 ### tracker/
